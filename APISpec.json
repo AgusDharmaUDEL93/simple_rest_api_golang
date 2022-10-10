@@ -1,0 +1,146 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Belajar CRUD API",
+    "description": "Web Application for learning",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "localhost:8080"
+    }
+  ],
+  "paths": {
+    "/persons" : {
+      "post": {
+        "tags": [
+          "Person API"
+        ],
+        "description" : "Create data person",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name" : {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success create data",
+            "content": {
+              "application/json" : {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code" : {
+                      "type": "number"
+                    },
+                    "status" : {
+                      "type": "string"
+                    },
+                    "data" : {
+                      "type": "object",
+                      "properties": {
+                        "name" : {
+                          "type": "string"
+                        },
+                        "id" : {
+                          "type": "integer"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Person API"
+        ],
+        "description": "Get all data person",
+        "responses": {
+          "200" : {
+            "description": "Success get all data",
+            "content": {
+              "application/json" : {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code" : {
+                      "type": "number"
+                    },
+                    "status" : {
+                      "type": "string"
+                    },
+                    "data" : {
+                      "type": "array",
+                      "items": {
+                        "properties": {
+                          "name" : {
+                            "type": "string"
+                          },
+                          "id" : {
+                            "type": "integer"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/person/{id}" : {
+      "get": {
+        "tags": [
+          "Person API"
+        ],
+        "description": "Get person by id",
+        "responses": {
+          "200" : {
+            "description": "Success get data",
+            "content": {
+              "application/json" : {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code" : {
+                      "type": "number"
+                    },
+                    "status" : {
+                      "type": "string"
+                    },
+                    "data" : {
+                      "type": "object",
+                      "properties": {
+                        "name" : {
+                          "type": "string"
+                        },
+                        "id" : {
+                          "type": "integer"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
