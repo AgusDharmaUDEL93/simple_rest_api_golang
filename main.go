@@ -2,6 +2,7 @@ package main
 
 import (
 	"belajar_api_sendiri/controller"
+	"fmt"
 	"net/http"
 	"strings"
 )
@@ -26,7 +27,9 @@ func main() {
 		}
 	})
 
-	err := http.ListenAndServe("localhost:8080", nil)
+	fmt.Println("Serving in api at port 8080")
+	
+	err := http.ListenAndServe(":8080", nil)
 	if err != nil {
 		return
 	}
